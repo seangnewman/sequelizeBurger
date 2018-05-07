@@ -1,2 +1,2 @@
 # burger
-Week 12 Assignment using node, express  and handlebars with mySQL
+Week 13 Expanding the previous burger excercise with sequelize
