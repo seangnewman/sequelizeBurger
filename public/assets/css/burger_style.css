@@ -1,0 +1,168 @@
+html{
+  font-family: 'Prompt', sans-serif;
+  font-size: 16px;
+  color:orangered;
+  height: 1vmax; 
+  margin: 0 auto;
+  background-color: black;
+ 
+}
+
+body{
+ height: 95vh;
+  
+}
+main{
+    
+    height: 100%;
+   
+    
+}
+#mainContainer{
+  background-image: url("/assets/img/eating_burger.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 2.5rem;
+  padding: 0 2rem 1rem 2rem;
+  width: 95%;
+  margin: 0 auto;
+  
+ 
+}
+
+#titleContainer{
+  margin-top: 1rem;
+  width: 100%;
+  display: block;
+  color:orangered;
+}
+
+#titleContainer h1{
+  text-align: center;
+  font-family: 'Londrina Solid', cursive;
+  color:orangered;
+  font-size: 4rem;
+}
+
+#bodyContainer{
+  display:flex;
+  justify-content: space-evenly;
+  width: 100%;
+   
+  margin: 0 auto;
+   
+  position: relative;
+  top:25%;
+}
+
+#availableToEat, #alreadyEaten{
+  width: 10%;
+  border-radius: 2.5rem;
+  text-align: center;
+  background-color:gray;
+  color: black;
+  font-weight: bold;
+  opacity: .5;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#availableToEat h2, #alreadyEaten h2{
+     color: orange;
+     font-weight: bold;
+     font-style: italic;
+     
+  }
+
+#availableToEat ul, #alreadyEaten ul{
+  list-style-type: none;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+
+#availableToEat ul li, #alreadyEaten ul li{
+  align-content: center;
+  margin:0;
+  width:100%;
+  padding: 0;
+ }
+
+#mainBurgerContainer{
+  width:50%;
+  color:orangered;
+  font-weight: 700;
+   
+  text-align: center;
+  font-size: 2rem;
+ 
+  border-radius: 2.5rem;
+  position: relative;
+}
+
+
+.itemContainer{
+  display:flex;
+  justify-content: center;
+  margin:0;
+  width: 100%;
+}
+
+.imgBurger{
+  height:4rem;
+  width:auto;
+  border-radius : 1.5rem;
+  
+}
+
+.eatburger{
+  height: 2.125rem;
+  background-color: orangered;
+  color:black;
+  font-weight: bold;
+  border:none;
+  border-radius: 1.5rem;
+  margin-top: 1.125rem;
+  font-size: 1.25rem;
+  padding: .5rem;
+  text-align: center;
+}
+
+#mainBurgerContainer h2{
+  font-weight: bold;
+  position: relative; 
+  top:30%;
+}
+.createBurger{
+  position: relative; 
+  top:15%;
+  background-color: black;
+  opacity: .6;
+  border-radius: 1.5rem;
+}
+.form-group{
+  padding-top: 1.5rem;
+}
+ 
+#btnBuildBurger{
+  background-color:orangered;
+  font-weight: bold;
+  font-style: italic;
+  font-size:1.25rem;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border:none;
+  border-radius: 2.5rem;
+}
+
+#errorMesssage{
+  color:greenyellow;
+  font-weight: bold;
+  font-style: italic;
+  font-size: .75rem;
+}

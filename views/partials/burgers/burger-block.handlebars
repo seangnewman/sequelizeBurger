@@ -1,0 +1,11 @@
+<li>
+  {{burger_name}}
+  <div class="itemContainer">
+	  {{#unless devoured}}
+	  <button class="eatburger" data-id="{{this.item_id}}">Eat!</button>
+	  {{/unless}}
+    <div class="imgContainer">
+	  <img class="imgBurger" src="/assets/img/old_fashioned.png">
+	</div>
+  </div>
+</li>
