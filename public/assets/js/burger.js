@@ -35,19 +35,28 @@ $(document).ready(function(){
     });
 
   $(".eatburger").on("click", function(event) {
-    var item_id = $(this).data("id");
-  
+     
+     
+     
+    var item_id = parseInt($(this).data("id"));
+     
+    
+     
     var newBurgerState = {
       devoured: true
     };
+      
+    alert(item_id);
+    var ajaxCall = "/api/burgers/" + item_id ;
+    alert(ajaxCall);
     // Send the PUT request.
-    $.ajax("/api/burgers/" + item_id, {
+    $.ajax(ajaxCall , {
        type: "PUT",
        data: newBurgerState
     }).then(function() {
-        console.log("changed devoured to", newBurgerState.devoured);
-        // Reload the page to get the updated list
+        
         location.reload();
+        
     });
   });
 });

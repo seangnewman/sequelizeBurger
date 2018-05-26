@@ -1,9 +1,26 @@
 <div id="availableToEat">
   <h2>Eat A Burger!</h2>
+   
   <ul>
     {{#each burger}}
-      {{#unless devoured}}
-        {{> burgers/burger-block devoured=false}}
+      {{#unless this.devoured}}
+          
+        
+      <li>
+        {{this.burger_name}} {{this.item_id}}
+            <div class="itemContainer">
+	               
+	                  <button class="eatburger" id={{this.item_id}} data-id= {{this.item_id}}>Eat!</button>
+		                   
+	                
+              <div class="imgContainer">
+	          <img class="imgBurger" src="/assets/img/old_fashioned.png">
+	        </div>
+        </div>
+      </li>
+
+
+
       {{/unless}}
     {{/each}}
   </ul>
@@ -31,7 +48,7 @@
   <h2>Consumed!</h2>
   <ul>
     {{#each burger}}
-      {{#if devoured}}
+      {{#if this.devoured}}
         {{> burgers/burger-block devoured=true}}
       {{/if}}
     {{/each}}

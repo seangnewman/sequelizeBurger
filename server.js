@@ -7,6 +7,8 @@ var bodyParser = require("body-parser");
 var handleBars = require('handlebars');
 var exphbs = require("express-handlebars");
 
+
+const db = require('./models');
 //Note that the mysql dependency handled in the database layer
 
 // ==============================================================================
@@ -56,6 +58,13 @@ app.use(routes);
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8082;
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
-});
+
+//If able to connect to the database, then begin listening for the app
+db.sequelize.sync()
+.then(
+  function(){
+    app.listen(PORT, function() {
+      console.log("App listening on PORT: " + PORT);
+    });
+  });
+
