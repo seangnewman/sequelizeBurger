@@ -35,7 +35,7 @@ $(document).ready(function(){
     });
 
   $(".eatburger").on("click", function(event) {
-     
+     //event.preventDefault();
      
      
     var item_id = parseInt($(this).data("id"));
@@ -46,15 +46,15 @@ $(document).ready(function(){
       devoured: true
     };
       
-    alert(item_id);
+   
     var ajaxCall = "/api/burgers/" + item_id ;
-    alert(ajaxCall);
+     
     // Send the PUT request.
     $.ajax(ajaxCall , {
        type: "PUT",
        data: newBurgerState
     }).then(function() {
-        
+        console.log("success?");
         location.reload();
         
     });

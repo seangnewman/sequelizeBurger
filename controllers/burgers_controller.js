@@ -23,6 +23,9 @@ let db = require("../models");
 router.get("/", function(req, res) {
   // findAll returns all burgers
     db.burger.findAll({
+      //Include association between customer and burger
+       
+      include : [{model: db.customer,attributes: ["customer_name"]}]
     }).then(function(burgers){
       
       var burgerObject = {
@@ -41,9 +44,12 @@ router.post("/api/burgers", function(req, res) {
   db.burger.create({
     //item_id auto increments
      
-    burger_name : req.body.burger_name,
+    burger_name : req.body.burger_name === null? "default name" : req.body.burger_name,
     devoured : req.body.devoured == 0 ? false: true
     //devoured defaults to false
+  }).then(function(newCustomer){
+    // Now need to create an entry for the customer
+     
   }).then(function(){
     // C - Create 
     return res.redirect('/');
@@ -52,7 +58,7 @@ router.post("/api/burgers", function(req, res) {
 
 router.put("/api/burgers/:item_id", function(req, res) {
   //U - Update functionality on burger
-  console.log(req);
+   
   db.burger.update({
     devoured : req.body.devoured 
   }, {
@@ -60,9 +66,41 @@ router.put("/api/burgers/:item_id", function(req, res) {
       item_id : req.params.item_id
     }
   }).then(function(){
-    return res.redirect('/');
+    db.burger.findAll({
+    }).then(function(burgers){
+      
+      var burgerObject = {
+        burger : burgers 
+      }
+      //console.log(JSON.stringify(burgerObject));
+
+       res.render("index", burgerObject);
+    });
   });
+   
 });
+
+// POST route which calls Sequelize's create method with a customer name,
+// then the update method to attach the name to a burger and mark that burger as eaten.
+router.put('/api/new/customer/:id', function(req, res) {
+    var customerName = req.body.customer_name;
+    db.Customer.create({
+        customer_name: customerName
+    }).then(function(data) {
+        var devoured = false;
+        var ID = req.params.id;
+
+        db.Burger.update({
+            devoured: devoured,
+            CustomerId: data.id},
+            {where: {id: ID}}
+        ).then(function() {
+            res.redirect('/');
+        });
+    });
+});
+
+
  
 // Export routes for server.js to use.
 module.exports = router;

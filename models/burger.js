@@ -16,10 +16,31 @@ module.exports = function(sequelize, DataTypes){
       type:DataTypes.BOOLEAN,
       defaulValue : false,
       allowNull : false
-    },
-   
+    }
+    
      
-  });
+  },
+  
+  {
+     
+    tableName: "burgers",
+    classMethods: {
+     
+      associate: function(models){
+        //Each burger belongs to specific customer
+        Burger.belongsTo(models.Customer,{
+          foreignKey:{
+            allowNull : false  // for now, allow blank customer names
+          }
+        });
+      }
+    }
+    
+  }
+ 
+);  
+
+ 
 
   return Burger;
 };
