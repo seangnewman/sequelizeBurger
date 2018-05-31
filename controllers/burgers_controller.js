@@ -25,7 +25,7 @@ router.get("/", function(req, res) {
     db.burger.findAll({
       //Include association between customer and burger
        
-      include : [{model: db.customer,attributes: ["customer_name"]}]
+      include : [{model: db.customer,attributes: ["customer_id"]}]
     }).then(function(burgers){
       
       var burgerObject = {

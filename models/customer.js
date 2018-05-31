@@ -11,19 +11,9 @@ module.exports = function(sequelize, DataTypes){
       allowNull : false
     }
   },
-  {
-     
-    tableName: "customers",
-    classMethods: {
-      associate: function (models) {
-          Customer.hasOne(models.Burger);
-      }
-  }
-     
- 
-}
+   
   );
 
-  
+ 
   return Customer;
 }

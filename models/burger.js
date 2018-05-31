@@ -21,26 +21,15 @@ module.exports = function(sequelize, DataTypes){
      
   },
   
-  {
-     
-    tableName: "burgers",
-    classMethods: {
-     
-      associate: function(models){
-        //Each burger belongs to specific customer
-        Burger.belongsTo(models.Customer,{
-          foreignKey:{
-            allowNull : false  // for now, allow blank customer names
-          }
-        });
-      }
-    }
-    
-  }
+ 
  
 );  
 
- 
+Burger.associate = function(models){
+  Burger.hasOne(models.customer,{
+    foreignKey : 'customer_id'
+  });
+}
 
   return Burger;
 };
