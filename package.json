@@ -4,11 +4,12 @@
   "description": "Burger Simulation",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seangnewman/burger.git"
+    "url": "git+https://github.com/seangnewman/sequelizeburger.git"
   },
   "keywords": [
     "node",
@@ -19,9 +20,9 @@
   "author": "newmanuevers",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/seangnewman/burger/issues"
+    "url": "https://github.com/seangnewman/sequelizeburger/issues"
   },
-  "homepage": "https://github.com/seangnewman/burger#readme",
+  "homepage": "https://github.com/seangnewman/sequelizeburger#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
