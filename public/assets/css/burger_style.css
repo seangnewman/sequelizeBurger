@@ -19,7 +19,7 @@ main{
     
 }
 #mainContainer{
-  background-image: url("/assets/img/serving_burger.jpg");
+  background-image: url("/assets/img/serving_burger.jpeg");
   background-size: cover;
   background-position: center;
   border-radius: 2.5rem;
